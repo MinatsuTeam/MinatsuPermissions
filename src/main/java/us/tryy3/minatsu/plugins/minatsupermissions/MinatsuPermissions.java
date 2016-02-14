@@ -50,6 +50,7 @@ public class MinatsuPermissions extends Plugin {
         this.messages = new Messages();
 
         //Register new sub commands;
+        super.onStart();
     }
 
     @Override
