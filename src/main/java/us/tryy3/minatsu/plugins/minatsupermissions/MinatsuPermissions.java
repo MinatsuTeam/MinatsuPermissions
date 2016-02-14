@@ -165,7 +165,6 @@ public class MinatsuPermissions extends Plugin {
     public boolean onCommand(Connection connection, String from, String id, String cmd, String[] args) {
         if (cmd.toLowerCase().equals("mp") || cmd.toLowerCase().equals("minatsupermission") || cmd.toLowerCase().equals("minatsupermissions")) {
             if (args == null) {
-                System.out.println("Args is null.");
                 help(connection, id);
                 return true;
             }
@@ -291,7 +290,7 @@ public class MinatsuPermissions extends Plugin {
                         }
                     }
                     if (args[0].toLowerCase().equals("player") || args[0].toLowerCase().equals("players")) {
-                        if (group != null) {
+                        if (player != null) {
                             if (args[2].toLowerCase().equals("group") || args[2].toLowerCase().equals("groups")) {
                                 //mp player <player> group
                                 if (permissionsApi.hasPlayerPermission(from, "minatsupermissions.player.groups")) {
@@ -491,8 +490,6 @@ public class MinatsuPermissions extends Plugin {
     }
 
     public void help(Connection connection, String id) {
-        System.out.println("Help command ran.");
-        System.out.println(id);
         String s = "";
         s +="-|-Help page-|-\n";
         s += "mp group (group) add (perm) - Add a permission node to a group.\n";
@@ -517,7 +514,6 @@ public class MinatsuPermissions extends Plugin {
         s += "mp player (player) info - Returns a summary of a player.\n";
         s += "mp player (player) - Returns a summary for a player.";
 
-        System.out.println(s);
         connection.sendMessage(id, s);
     }
     public Map getConfig() {
